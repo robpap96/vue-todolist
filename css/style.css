@@ -26,3 +26,6 @@ form {
     width: 50%;
     margin: auto;
 }
+.didIt{
+    text-decoration: line-through;
+}

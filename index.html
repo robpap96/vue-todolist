@@ -16,21 +16,22 @@
             <div class="logo d-flex justify-content-center ">
                 <img src="img/logo.png" alt="logo">
             </div>
-            <form class="d-flex justify-content-between align-items-center" @submit.prevent="addTask(newTodo)">
+            <form class="d-flex justify-content-between align-items-center" @submit.prevent="addTask">
                 <div class="mb-3 flex-grow-1 pe-3 pt-3">
-                    <input type="input" class="form-control" placeholder="Inserisci testo todo" v-model="newTodo" required>
+                    <input type="input" class="form-control" placeholder="Inserisci testo todo" v-model="newTask" required>
                  
                 </div>
                 <button type="submit" class="btn btn-primary p-2 " >Aggiungi</button>
             </form>    
         </div>
         <div class="todo-list d-flex justify-content-center">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between " v-for="(task, index) in tasks">
-                    {{task}}
+            <ul v-if=" tasks.length > 0" class="list-group" >
+                <li class="list-group-item d-flex justify-content-between " v-for="(task, index) in tasks" @click="wellDone">
+                    <div :class="{didIt : isDone(task.done)}">{{task}}</div>
                     <i class="fa-solid fa-xmark" @click="removeTask(task)"></i>
                 </li>
             </ul>
+            <h2 v-else>Non ci sono Tasks, sei LIBERO!</h2>
         </div>
     </div>
     <script src="js/main.js"></script>

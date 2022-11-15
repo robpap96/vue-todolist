@@ -19,7 +19,7 @@ const { createApp } = Vue
             this.newTodo = '';
         }, 
         removeTask(task){
-            this.tasks.slide(task, 1);
+            this.tasks.splice(task, 1);
         },
     }
     

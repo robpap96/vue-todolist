@@ -5,7 +5,7 @@
 }
 
 .logo img {
-    width: 50%;
+    width: 30%;
    
 }
 .btn {
@@ -16,6 +16,13 @@
     min-height: 50px;
     min-width: 1000px;
     max-width: 1140px;
-    background-color: brown;
     border-radius: 20px;
+
+}
+.list-group {
+    width: 50%;
+}
+form {
+    width: 50%;
+    margin: auto;
 }

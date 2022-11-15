@@ -8,24 +8,29 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div id="app">
-        <div class="container">
-            <div class="logo d-flex justify-content-center p-4">
+        <div class="container ">
+            <div class="logo d-flex justify-content-center ">
                 <img src="img/logo.png" alt="logo">
             </div>
-            <form class="d-flex justify-content-between align-items-center">
-                <div class="mb-3 flex-grow-1 p-3">
-                    <label for="exampleInputEmail1" class="form-label"></label>
-                    <input type="input" class="form-control" id="" placeholder="Inserisci testo todo" required>
+            <form class="d-flex justify-content-between align-items-center" @submit.prevent="addTask(newTodo)">
+                <div class="mb-3 flex-grow-1 pe-3 pt-3">
+                    <input type="input" class="form-control" placeholder="Inserisci testo todo" v-model="newTodo" required>
+                 
                 </div>
-
-                <button type="submit" class="btn btn-primary p-3 ">Aggiungi</button>
+                <button type="submit" class="btn btn-primary p-2 " >Aggiungi</button>
             </form>    
         </div>
-        <div class="todo-list">
-
+        <div class="todo-list d-flex justify-content-center">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between " v-for="(task, index) in tasks">
+                    {{task}}
+                    <i class="fa-solid fa-xmark" @click="removeTask(tasks[index])"></i>
+                </li>
+            </ul>
         </div>
     </div>
     <script src="js/main.js"></script>

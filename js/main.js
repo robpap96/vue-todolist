@@ -27,8 +27,8 @@ const { createApp } = Vue
             const objNewTask = {
                 text: this.newTask,
                 done: false,
-            }
-            this.text.push(objNewTask.text);
+            };
+            this.tasks.push(objNewTask);
             this.newTask = '';
 
         }, 

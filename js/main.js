@@ -5,10 +5,19 @@ const { createApp } = Vue
     data() {
         return {
             newTask: '',
-            tasks: [
-                'andare dal medico',
-                'comprare la dro',
-                'devolvere in beneficienza',
+            tasks: [ 
+                {
+                    text: 'andare dal medico',
+                    done: false,
+                },
+                {
+                    text: 'andare dal s ad damedico',
+                    done: true,
+                },
+                {
+                    text: 'andare dal mesacsadico',
+                    done: false,
+                },
             ],
 
         }
@@ -19,33 +28,20 @@ const { createApp } = Vue
                 text: this.newTask,
                 done: false,
             }
-            this.tasks.push(this.newTask);
+            this.text.push(objNewTask.text);
             this.newTask = '';
+
         }, 
         removeTask(task){
             this.tasks.splice(task, 1);
         },
-        wellDone(){
-            if(this.done === false){
-                this.done = true;
+        wellDone(task){
+            if(task.done === false){
+                task.done = true;
             } else {
-                this.done = false;
+                task.done = false;
             }
-
         },
-        isDone(task){
-            if(task.done === true){
-                //debug
-                console.log(task.done);
-                return true;
-            } else {
-                //debug
-                console.log(task.done);
-                return false;
-            }
-
-        }
-    
     }
     
   }).mount('#app')
